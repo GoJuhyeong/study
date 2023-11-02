@@ -6,5 +6,9 @@
     <insert id="saveBoard" parameterType="study.project.dto.BoardDto">
         INSERT INTO board (title, content) VALUES (#{title}, #{content})
     </insert>
+    
+    <select id="boardList" resultType="study.project.dto.BoardDto">
+        SELECT title, content FROM board;
+    </select>
 </mapper>
 

@@ -4,6 +4,8 @@ import org.springframework.stereotype.Service;
 import study.project.dto.BoardDto;
 import study.project.repository.BoardRepository;
 
+import java.util.List;
+
 @Service
 public class BoardServiceImpl implements BoardService {
 
@@ -16,5 +18,10 @@ public class BoardServiceImpl implements BoardService {
     @Override
     public void save(BoardDto boardDto) {
         boardRepository.saveBoard(boardDto);
+    }
+
+    @Override
+    public List<BoardDto> list() {
+        return boardRepository.boardList();
     }
 }
