@@ -27,9 +27,9 @@ public class BoardController {
     }
 
     @PostMapping("/write")
-    public void save(BoardDto boardDto) {
-        System.out.println(boardDto.getAuthor());
+    public String save(BoardDto boardDto) {
         boardService.save(boardDto);
+        return "redirect:/list";
     }
 
     @GetMapping("/list")
