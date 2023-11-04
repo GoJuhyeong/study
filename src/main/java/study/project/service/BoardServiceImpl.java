@@ -12,7 +12,7 @@ import java.util.List;
 public class BoardServiceImpl implements BoardService {
 
     private final BoardRepository boardRepository;
-    @Autowired
+
     public BoardServiceImpl(BoardRepository boardRepository) {
         this.boardRepository = boardRepository;
     }
@@ -27,5 +27,10 @@ public class BoardServiceImpl implements BoardService {
     @Override
     public List<BoardDto> list() {
         return boardRepository.boardList();
+    }
+
+    @Override
+    public BoardDto findById(long id) {
+        return boardRepository.findById(id);
     }
 }

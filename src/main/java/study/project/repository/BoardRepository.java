@@ -1,6 +1,7 @@
 package study.project.repository;
 
 import org.apache.ibatis.annotations.Mapper;
+import org.springframework.stereotype.Repository;
 import study.project.dto.BoardDto;
 
 import java.util.List;
@@ -9,4 +10,5 @@ import java.util.List;
 public interface BoardRepository {
     void saveBoard(BoardDto boardDto);
     List<BoardDto> boardList();
+    BoardDto findById(long id);
 }
