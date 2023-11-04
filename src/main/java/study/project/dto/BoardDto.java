@@ -4,6 +4,8 @@ public class BoardDto {
     private String title;
     private String content;
 
+    private String author;
+
     public String getTitle() {
         return title;
     }
@@ -18,5 +20,13 @@ public class BoardDto {
 
     public void setContent(String content) {
         this.content = content;
+    }
+
+    public String getAuthor() {
+        return author;
+    }
+
+    public void setAuthor(String author) {
+        this.author = author;
     }
 }

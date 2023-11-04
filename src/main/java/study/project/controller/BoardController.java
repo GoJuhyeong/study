@@ -25,6 +25,7 @@ public class BoardController {
 
     @PostMapping("/write")
     public void save(BoardDto boardDto) {
+        System.out.println(boardDto.getAuthor());
         boardService.save(boardDto);
     }
 
