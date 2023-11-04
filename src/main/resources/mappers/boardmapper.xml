@@ -8,7 +8,7 @@
     </insert>
     
     <select id="boardList" resultType="study.project.dto.BoardDto">
-        SELECT title, content, author FROM board;
+        SELECT * FROM board;
     </select>
 </mapper>
 
