@@ -4,7 +4,7 @@
 
 <mapper namespace="study.project.repository.BoardRepository">
     <insert id="saveBoard" parameterType="study.project.dto.BoardDto">
-        INSERT INTO board (title, content, author) VALUES (#{title}, #{content}, #{author})
+        INSERT INTO board (title, content, author, created_at) VALUES (#{title}, #{content}, #{author}, #{created_at})
     </insert>
     
     <select id="boardList" resultType="study.project.dto.BoardDto">
