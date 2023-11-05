@@ -8,7 +8,8 @@
     </insert>
     
     <select id="boardList" resultType="study.project.dto.BoardDto">
-        SELECT * FROM board;
+        SELECT * FROM board
+        ORDER BY created_at DESC;
     </select>
 
     <select id="findById" resultType="study.project.dto.BoardDto">
@@ -18,12 +19,12 @@
     <update id="update" parameterType="study.project.dto.BoardDto">
         UPDATE board
         set title = #{title}, author = #{author}, content = #{content}
-        WHERE id = #{id}
+        WHERE id = #{id};
     </update>
 
     <delete id="delete">
         DELETE FROM board
-        where id = #{id}
+        where id = #{id};
     </delete>
 </mapper>
 
