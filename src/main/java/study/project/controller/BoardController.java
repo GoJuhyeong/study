@@ -3,10 +3,7 @@ package study.project.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 import study.project.dto.BoardDto;
 import study.project.service.BoardService;
 
@@ -41,8 +38,17 @@ public class BoardController {
 
     @GetMapping("/post/view/{id}")
     public String postView(@PathVariable long id, Model model) {
+        System.out.println("id = " + id);
         BoardDto post = boardService.findById(id);
         model.addAttribute("post", post);
         return "view";
     }
+
+    @GetMapping("/update-form/{id}")
+    public String updateForm(@PathVariable long id, Model model) {
+        BoardDto post = boardService.findById(id);
+        model.addAttribute("post", post);
+        return "update-form";
+    }
+
 }
