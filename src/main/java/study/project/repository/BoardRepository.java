@@ -9,8 +9,12 @@ import java.util.List;
 @Mapper
 public interface BoardRepository {
     void saveBoard(BoardDto boardDto);
+
     List<BoardDto> boardList();
+
     BoardDto findById(long id);
 
     void update(BoardDto boardDto);
+
+    void delete(long id);
 }

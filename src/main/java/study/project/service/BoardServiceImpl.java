@@ -37,4 +37,9 @@ public class BoardServiceImpl implements BoardService {
     public void update(BoardDto boardDto) {
         boardRepository.update(boardDto);
     }
+
+    @Override
+    public void delete(long id) {
+        boardRepository.delete(id);
+    }
 }
