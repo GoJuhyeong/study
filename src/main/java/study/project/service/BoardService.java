@@ -8,4 +8,6 @@ public interface BoardService {
     void save(BoardDto boardDto);
     List<BoardDto> list();
     BoardDto findById(long id);
+
+    void update(BoardDto boardDto);
 }

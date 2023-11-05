@@ -11,4 +11,6 @@ public interface BoardRepository {
     void saveBoard(BoardDto boardDto);
     List<BoardDto> boardList();
     BoardDto findById(long id);
+
+    void update(BoardDto boardDto);
 }

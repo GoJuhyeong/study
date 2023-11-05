@@ -38,7 +38,6 @@ public class BoardController {
 
     @GetMapping("/post/view/{id}")
     public String postView(@PathVariable long id, Model model) {
-        System.out.println("id = " + id);
         BoardDto post = boardService.findById(id);
         model.addAttribute("post", post);
         return "view";
@@ -49,6 +48,12 @@ public class BoardController {
         BoardDto post = boardService.findById(id);
         model.addAttribute("post", post);
         return "update-form";
+    }
+
+    @PostMapping("/update")
+    public String update(BoardDto boardDto) {
+        boardService.update(boardDto);
+        return "redirect:/list";
     }
 
 }

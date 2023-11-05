@@ -20,7 +20,6 @@ public class BoardServiceImpl implements BoardService {
     @Override
     public void save(BoardDto boardDto) {
         boardDto.setCreated_at(new Date());
-        System.out.println(boardDto.getCreated_at());
         boardRepository.saveBoard(boardDto);
     }
 
@@ -32,5 +31,10 @@ public class BoardServiceImpl implements BoardService {
     @Override
     public BoardDto findById(long id) {
         return boardRepository.findById(id);
+    }
+
+    @Override
+    public void update(BoardDto boardDto) {
+        boardRepository.update(boardDto);
     }
 }

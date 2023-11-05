@@ -15,5 +15,10 @@
         SELECT * FROM board WHERE id = #{id};
     </select>
 
+    <update id="update" parameterType="study.project.dto.BoardDto">
+        UPDATE board
+        set title = #{title}, author = #{author}, content = #{content}
+        WHERE id = #{id}
+    </update>
 </mapper>
 
