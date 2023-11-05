@@ -26,8 +26,8 @@
         </tr>
         </thead>
         <tbody id="tbody">
-        <tr th:each = "board:${list}">
-            <td th:text="${board.id}"></td>
+        <tr th:each = "board, iterStat: ${list}">
+            <td th:text="${#lists.size(list) - iterStat.index}"></td>
             <td><a th:href="@{'/post/view/' + ${board.id}}"><span th:text="${board.title}"></span></a></td>
             <td th:text="${board.author}"></td>
             <td th:text="${board.created_at}"></td>
