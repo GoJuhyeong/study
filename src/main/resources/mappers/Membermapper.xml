@@ -7,9 +7,8 @@
         INSERT INTO Member (memberEmail, memberPassword, memberName) VALUES (#{memberEmail}, #{memberPassword}, #{memberName});
     </insert>
     
-    <select id="boardList" resultType="study.project.dto.BoardDto">
-        SELECT * FROM board
-        ORDER BY created_at DESC;
+    <select id="findByMemberEmail" resultType="study.project.dto.MemberDto">
+        SELECT * FROM member WHERE memberEmail = #{memberEmail};
     </select>
 
     <select id="findById" resultType="study.project.dto.BoardDto">

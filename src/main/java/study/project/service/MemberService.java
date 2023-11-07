@@ -4,4 +4,6 @@ import study.project.dto.MemberDto;
 
 public interface MemberService {
     void memberSave(MemberDto memberDto);
+
+    MemberDto login(MemberDto memberDto);
 }

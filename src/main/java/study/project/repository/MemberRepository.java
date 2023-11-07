@@ -6,4 +6,6 @@ import study.project.dto.MemberDto;
 @Mapper
 public interface MemberRepository {
     void memberSave(MemberDto memberDto);
+
+    MemberDto findByMemberEmail(MemberDto memberDto);
 }

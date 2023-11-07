@@ -1,5 +1,6 @@
 package study.project.controller;
 
+import jakarta.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -25,8 +26,26 @@ public class MemberController {
 
     @PostMapping("/member/save")
     public String memberSave(MemberDto memberDto) {
-        System.out.println("memberDto = " + memberDto);
         memberService.memberSave(memberDto);
-        return "redirect:/list";
+        return "login";
+    }
+
+    @GetMapping("member/login")
+    public String loginForm() {
+        return "login";
+    }
+
+    @PostMapping("/member/login")
+    public String login(MemberDto memberDto, HttpSession session) {
+        MemberDto loginResult = memberService.login(memberDto);
+        if (loginResult != null) {
+            //로그인 성공
+            session.setAttribute("loginEmail", loginResult.getMemberEmail());
+            return "redirect:/list";
+        } else {
+            //로그인 실패
+            return "login";
+        }
+
     }
 }
