@@ -14,52 +14,53 @@ public class BoardController {
 
     private final BoardService boardService;
 
+    @Autowired
     public BoardController(BoardService boardService) {
         this.boardService = boardService;
     }
 
-    @GetMapping("/write")
+    @GetMapping("/post")
     public String write() {
-        return "write";
+        return "post-form";
     }
 
-    @PostMapping("/write")
+    @PostMapping("/post")
     public String save(BoardDto boardDto) {
         boardService.save(boardDto);
-        return "redirect:/list";
+        return "redirect:/posts";
     }
 
-    @GetMapping("/list")
+    @GetMapping("/posts")
     public String list(Model model) {
         List<BoardDto> list = boardService.list();
         model.addAttribute("list", list);
-        return "list";
+        return "posts";
     }
 
-    @GetMapping("/post/view/{id}")
+    @GetMapping("/post/{id}")
     public String postView(@PathVariable long id, Model model) {
         BoardDto post = boardService.findById(id);
         model.addAttribute("post", post);
-        return "view";
+        return "post-view";
     }
 
-    @GetMapping("/update-form/{id}")
+    @GetMapping("/post/update/{id}")
     public String updateForm(@PathVariable long id, Model model) {
         BoardDto post = boardService.findById(id);
         model.addAttribute("post", post);
-        return "update-form";
+        return "post-update";
     }
 
-    @PostMapping("/update")
+    @PostMapping("/post/update")
     public String update(BoardDto boardDto) {
         boardService.update(boardDto);
-        return "redirect:/list";
+        return "redirect:/posts";
     }
 
-    @GetMapping("/delete/{id}")
+    @GetMapping("/post/delete/{id}")
     public String delete(@PathVariable long id) {
         boardService.delete(id);
-        return "redirect:/list";
+        return "redirect:/posts";
     }
 
 }

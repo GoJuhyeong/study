@@ -19,32 +19,32 @@ public class MemberController {
         this.memberService = memberService;
     }
 
-    @GetMapping("/member/save")
+    @GetMapping("/member")
     public String memberForm() {
-        return "memberForm";
+        return "member-form";
     }
 
-    @PostMapping("/member/save")
+    @PostMapping("/member")
     public String memberSave(MemberDto memberDto) {
         memberService.memberSave(memberDto);
-        return "login";
+        return "login-form";
     }
 
-    @GetMapping("member/login")
+    @GetMapping("/login")
     public String loginForm() {
-        return "login";
+        return "login-form";
     }
 
-    @PostMapping("/member/login")
+    @PostMapping("/login")
     public String login(MemberDto memberDto, HttpSession session) {
         MemberDto loginResult = memberService.login(memberDto);
         if (loginResult != null) {
             //로그인 성공
             session.setAttribute("loginEmail", loginResult.getMemberEmail());
-            return "redirect:/list";
+            return "redirect:/posts";
         } else {
             //로그인 실패
-            return "login";
+            return "login-form";
         }
 
     }
